@@ -1,0 +1,10 @@
+Started by user [8mha:////4MLFtQFmIT7BWDPipzoY3HxXD1yuMMRRYvRP7P9s7sBVAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzmEgYe/dLi1CL9DKCdmSUAHtX1jcEAAAA=[0mMKI
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/testjob
+[Checks API] No suitable checks publisher found.
+[testjob] $ /bin/sh -xe /tmp/jenkins3310077568807257266.sh
++ /tmp/script.sh
+/tmp/jenkins3310077568807257266.sh: 2: /tmp/jenkins3310077568807257266.sh: /tmp/script.sh: Permission denied
+Build step 'Execute shell' marked build as failure
+[Checks API] No suitable checks publisher found.
+Finished: FAILURE
