@@ -7,7 +7,8 @@ RUN                                                                          \
   yum --enablerepo=extras -y install epel-release                         && \
   yum -y install https://rpms.remirepo.net/enterprise/remi-release-8.rpm  && \
   yum -y install php php-cli php-fpm php-mysqlnd php-zip php-devel php-gd php-mbstring php-curl php-xml php-pear php-bcmath php-json \
-    && yum clean all
+    && yum clean all \
+  && echo "daemon off;" >> /etc/nginx/nginx.conf
 
 EXPOSE 80 443
 
@@ -17,7 +18,12 @@ COPY ./conf/nginx.conf /etc/nginx/conf.d/default.conf
 
 COPY ./bin/start.sh /start.sh
 
-RUN chmod +x /start.sh && usermod -G tty nobody 
+COPY ./website/ /usr/share/nginx/html/
 
-CMD /start.sh 
+COPY ./website/ /var/www/html/
 
+RUN chmod +x /start.sh && usermod -G tty nobody
+
+CMD /start.sh
+
+CMD ["nginx"]
