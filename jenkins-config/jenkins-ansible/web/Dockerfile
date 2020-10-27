@@ -12,6 +12,9 @@ RUN                                                                          \
 
 EXPOSE 80 443
 
+RUN ln -sf /dev/stdout /var/log/nginx/access.log \
+    && ln -sf /dev/stderr /var/log/nginx/error.log
+
 VOLUME /var/www/html /var/log/nginx /var/log/php-fpm /var/lib/php-fpm
 
 COPY ./conf/nginx.conf /etc/nginx/conf.d/default.conf
@@ -26,4 +29,4 @@ RUN chmod +x /start.sh && usermod -G tty nobody
 
 CMD /start.sh
 
-CMD ["nginx"]
+CMD ["nginx", "-g", "daemon off;"]
