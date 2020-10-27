@@ -14,8 +14,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/local/bin/docker:/usr/local/bin/docker
   remote_host:
-    container_name: remote-host
-    image: remote-host
+    container_name: ansible
+    image: ansible-host
     build:
       context: centos8
     volumes:
@@ -33,7 +33,7 @@ services:
       - net
   web:
     container_name: web
-    image: ansible-web
+    image: nginx-web
     user: root
     build:
       context: jenkins-ansible/web
