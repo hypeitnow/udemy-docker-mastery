@@ -17,7 +17,7 @@ services:
     container_name: ansible
     image: ansible-host
     build:
-      context: centos8
+      context: jenkins-ansible
     volumes:
       - $PWD/aws-s3.sh:/tmp/script.sh
     networks:
@@ -55,4 +55,3 @@ services:
       - net
 networks:
   net:
-
